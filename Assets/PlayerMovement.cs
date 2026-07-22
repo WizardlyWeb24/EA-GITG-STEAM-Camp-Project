@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody rb;
     private Animator playerAnim;
+    public InputActionReference moveAction;
+
     private Vector2 moveInput;
 
     private void Awake()
@@ -18,9 +20,19 @@ public class PlayerMovement : MonoBehaviour
         rb.freezeRotation = true;
     }
 
-    public void OnMove(InputValue value)
+    private void OnEnable()
     {
-        moveInput = value.Get<Vector2>();
+        moveAction.action.Enable();
+    }
+
+    private void OnDisable()
+    {
+        moveAction.action.Disable();
+    }
+
+    private void Update()
+    {
+        moveInput = moveAction.action.ReadValue<Vector2>();
     }
 
     private void FixedUpdate()
