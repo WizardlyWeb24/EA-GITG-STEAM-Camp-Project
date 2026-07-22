@@ -10849,7 +10849,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Tanks.Complete.CameraControl
   m_DampTime: 0.2
   m_ScreenEdgeBuffer: 4
-  m_MinSize: 6.5
+  m_MinSize: 1
   m_Targets:
   - {fileID: 872784914}
   - {fileID: 1288147276}
@@ -11198,6 +11198,10 @@ PrefabInstance:
     - target: {fileID: 2652904614033032817, guid: ca4696c42f0ffa248841537e82950d66, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3203560624851411280, guid: ca4696c42f0ffa248841537e82950d66, type: 3}
+      propertyPath: m_Constraints
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 3430285085186677963, guid: ca4696c42f0ffa248841537e82950d66, type: 3}
       propertyPath: m_Name
