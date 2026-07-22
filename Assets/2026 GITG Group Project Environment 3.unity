@@ -870,6 +870,11 @@ MonoBehaviour:
   m_DefaultActionMap: 
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!4 &46527155 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1126242358742066004, guid: 094cd1418e634464ebab9c4a1fdcbde4, type: 3}
+  m_PrefabInstance: {fileID: 1985137032}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &49264139 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1576488453971394810, guid: a778b631c6253a04899cb31bad047c81, type: 3}
@@ -6743,12 +6748,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1136385240}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.00000002235174, y: -0.0000002980232, z: 0.00000004097819, w: 1}
-  m_LocalPosition: {x: 1.9071937, y: 1.5949976, z: 7.75049}
+  m_LocalRotation: {x: -0.10659316, y: 0.015821068, z: -0.0016980355, w: -0.99417543}
+  m_LocalPosition: {x: -0.10384035, y: 2.016776, z: -2.336647}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2079483091}
+  m_Father: {fileID: 46527155}
   m_LocalEulerAnglesHint: {x: 10, y: 196.274, z: 0}
 --- !u!114 &1136385244
 MonoBehaviour:
@@ -11184,7 +11189,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1126242358742066004, guid: 094cd1418e634464ebab9c4a1fdcbde4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1136385243}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 354350443408783854, guid: 094cd1418e634464ebab9c4a1fdcbde4, type: 3}
       insertIndex: -1
@@ -11744,7 +11752,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1136385243}
   - {fileID: 1540101493}
   - {fileID: 202492823}
   m_Father: {fileID: 0}
