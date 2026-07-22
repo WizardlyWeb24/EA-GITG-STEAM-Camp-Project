@@ -13,8 +13,12 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
     private Animator playerAnim;
     public InputActionReference moveAction;
+    public InputActionReference attack1Action;
+    public InputActionReference attack2Action;
+    public InputActionReference attack3Action;
 
     private Vector2 moveInput;
+
 
     private bool canAttack = true;
 
@@ -28,22 +32,45 @@ public class PlayerMovement : MonoBehaviour
     private void OnEnable()
     {
         moveAction.action.Enable();
+
+        attack1Action.action.Enable();
+        attack2Action.action.Enable();
+        attack3Action.action.Enable();
     }
 
     private void OnDisable()
     {
         moveAction.action.Disable();
+
+        attack1Action.action.Disable();
+        attack2Action.action.Disable();
+        attack3Action.action.Disable();
     }
 
     private void Update()
     {
         moveInput = moveAction.action.ReadValue<Vector2>();
+
+        if (attack1Action.action.WasPressedThisFrame())
+        {
+            Attack1();
+        }
+
+        if (attack2Action.action.WasPressedThisFrame())
+        {
+            Attack2();
+        }
+
+        if (attack3Action.action.WasPressedThisFrame())
+        {
+            Attack3();
+        }
     }
 
     // Left Mouse Button
-    public void OnAttack1(InputValue value)
+    private void Attack1()
     {
-        if (!value.isPressed || !canAttack)
+        if (!canAttack)
             return;
 
         Debug.Log("Attack1 Pressed");
@@ -52,10 +79,9 @@ public class PlayerMovement : MonoBehaviour
         StartCoroutine(Cooldown());
     }
 
-    // Right Mouse Button
-    public void OnAttack2(InputValue value)
+    private void Attack2()
     {
-        if (!value.isPressed || !canAttack)
+        if (!canAttack)
             return;
 
         Debug.Log("Attack2 Pressed");
@@ -64,10 +90,9 @@ public class PlayerMovement : MonoBehaviour
         StartCoroutine(Cooldown());
     }
 
-    // Spacebar
-    public void OnAttack3(InputValue value)
+    private void Attack3()
     {
-        if (!value.isPressed || !canAttack)
+        if (!canAttack)
             return;
 
         Debug.Log("Attack3 Pressed");
