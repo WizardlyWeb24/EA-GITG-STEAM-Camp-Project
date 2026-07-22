@@ -12033,8 +12033,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2079483090}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.11701785, y: -0.37629876, z: 0.04797413, w: -0.91782606}
-  m_LocalPosition: {x: -20.332731, y: 4.191833, z: -21.70572}
+  m_LocalRotation: {x: -0.065861136, y: -0.4457586, z: 0.03350554, w: -0.89209807}
+  m_LocalPosition: {x: -24.671892, y: 4.0418234, z: -19.584015}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12399,6 +12399,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2121539795942383315, guid: 0e3954e9798c44942bc8b661acc6b10a, type: 3}
+      propertyPath: attack1Action
+      value: 
+      objectReference: {fileID: 7661756079782504942, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    - target: {fileID: 2121539795942383315, guid: 0e3954e9798c44942bc8b661acc6b10a, type: 3}
+      propertyPath: attack2Action
+      value: 
+      objectReference: {fileID: 5589813163768151136, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    - target: {fileID: 2121539795942383315, guid: 0e3954e9798c44942bc8b661acc6b10a, type: 3}
+      propertyPath: attack3Action
+      value: 
+      objectReference: {fileID: -1599000700537569617, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12456,6 +12468,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7635183663029789530, guid: ca4696c42f0ffa248841537e82950d66, type: 3}
+      propertyPath: moveAction
+      value: 
+      objectReference: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    - target: {fileID: 7635183663029789530, guid: ca4696c42f0ffa248841537e82950d66, type: 3}
+      propertyPath: attack1Action
+      value: 
+      objectReference: {fileID: 1120369429361536294, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    - target: {fileID: 7635183663029789530, guid: ca4696c42f0ffa248841537e82950d66, type: 3}
+      propertyPath: attack2Action
+      value: 
+      objectReference: {fileID: 441953944031299066, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    - target: {fileID: 7635183663029789530, guid: ca4696c42f0ffa248841537e82950d66, type: 3}
+      propertyPath: attack3Action
+      value: 
+      objectReference: {fileID: 7703821401258372623, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
