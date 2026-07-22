@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,9 +8,13 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 5f;
     public float rotationSpeed = 180f;
 
+    public float attackCooldown = 0.8f;
+
     private Rigidbody rb;
     private Animator playerAnim;
     private Vector2 moveInput;
+
+    private bool canAttack = true;
 
     private void Awake()
     {
@@ -21,6 +26,42 @@ public class PlayerMovement : MonoBehaviour
     public void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
+    }
+
+    // Left Mouse Button
+    public void OnAttack1(InputValue value)
+    {
+        if (!value.isPressed || !canAttack)
+            return;
+
+        Debug.Log("Attack1 Pressed");
+
+        playerAnim.SetTrigger("Attack1");
+        StartCoroutine(Cooldown());
+    }
+
+    // Right Mouse Button
+    public void OnAttack2(InputValue value)
+    {
+        if (!value.isPressed || !canAttack)
+            return;
+
+        Debug.Log("Attack2 Pressed");
+
+        playerAnim.SetTrigger("Attack2");
+        StartCoroutine(Cooldown());
+    }
+
+    // Spacebar
+    public void OnAttack3(InputValue value)
+    {
+        if (!value.isPressed || !canAttack)
+            return;
+
+        Debug.Log("Attack3 Pressed");
+
+        playerAnim.SetTrigger("Attack3");
+        StartCoroutine(Cooldown());
     }
 
     private void FixedUpdate()
@@ -42,13 +83,20 @@ public class PlayerMovement : MonoBehaviour
         // Animation
         if (moveInput != Vector2.zero)
         {
-            // TRUE = Player is walking
             playerAnim.SetBool("isWalking", true);
         }
         else
         {
-            // FALSE = Player is NOT walking
             playerAnim.SetBool("isWalking", false);
         }
+    }
+
+    private IEnumerator Cooldown()
+    {
+        canAttack = false;
+
+        yield return new WaitForSeconds(attackCooldown);
+
+        canAttack = true;
     }
 }
