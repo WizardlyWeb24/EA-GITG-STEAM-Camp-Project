@@ -8,10 +8,12 @@ public class PlayerMovement : MonoBehaviour
     public float rotationSpeed = 180f;
 
     private Rigidbody rb;
+    private Animator playerAnim;
     private Vector2 moveInput;
 
     private void Awake()
     {
+        playerAnim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
     }
@@ -36,5 +38,17 @@ public class PlayerMovement : MonoBehaviour
         rb.MoveRotation(
             rb.rotation * Quaternion.Euler(0f, turn, 0f)
         );
+
+        // Animation
+        if (moveInput != Vector2.zero)
+        {
+            // TRUE = Player is walking
+            playerAnim.SetBool("isWalking", true);
+        }
+        else
+        {
+            // FALSE = Player is NOT walking
+            playerAnim.SetBool("isWalking", false);
+        }
     }
 }
