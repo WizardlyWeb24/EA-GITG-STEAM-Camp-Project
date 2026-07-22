@@ -12,13 +12,13 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody rb;
     private Animator playerAnim;
+
     public InputActionReference moveAction;
     public InputActionReference attack1Action;
     public InputActionReference attack2Action;
     public InputActionReference attack3Action;
 
     private Vector2 moveInput;
-
 
     private bool canAttack = true;
 
@@ -47,9 +47,14 @@ public class PlayerMovement : MonoBehaviour
     {
         moveAction.action.Disable();
 
-        attack1Action.action.Disable();
-        attack2Action.action.Disable();
-        attack3Action.action.Disable();
+        if (attack1Action != null)
+            attack1Action.action.Disable();
+
+        if (attack2Action != null)
+            attack2Action.action.Disable();
+
+        if (attack3Action != null)
+            attack3Action.action.Disable();
     }
 
     private void Update()
@@ -84,6 +89,7 @@ public class PlayerMovement : MonoBehaviour
         StartCoroutine(Cooldown());
     }
 
+    // Right Mouse Button
     private void Attack2()
     {
         if (!canAttack)
@@ -95,6 +101,7 @@ public class PlayerMovement : MonoBehaviour
         StartCoroutine(Cooldown());
     }
 
+    // Spacebar
     private void Attack3()
     {
         if (!canAttack)
@@ -122,14 +129,53 @@ public class PlayerMovement : MonoBehaviour
             rb.rotation * Quaternion.Euler(0f, turn, 0f)
         );
 
-        // Animation
-        if (moveInput != Vector2.zero)
+        UpdateMovementAnimations();
+    }
+
+    private void UpdateMovementAnimations()
+    {
+        // Reset all movement animation bools
+        playerAnim.SetBool("forwardWalk", false);
+        playerAnim.SetBool("forwardRight", false);
+        playerAnim.SetBool("forwardLeft", false);
+        playerAnim.SetBool("right", false);
+        playerAnim.SetBool("left", false);
+        playerAnim.SetBool("backwardWalk", false);
+        playerAnim.SetBool("backwardRight", false);
+        playerAnim.SetBool("backwardLeft", false);
+
+        // Deadzone to prevent jitter
+        float deadzone = 0.1f;
+
+        bool forward = moveInput.y > deadzone;
+        bool backward = moveInput.y < -deadzone;
+        bool right = moveInput.x > deadzone;
+        bool left = moveInput.x < -deadzone;
+
+        if (forward)
         {
-            playerAnim.SetBool("isWalking", true);
+            if (right)
+                playerAnim.SetBool("forwardRight", true);
+            else if (left)
+                playerAnim.SetBool("forwardLeft", true);
+            else
+                playerAnim.SetBool("forwardWalk", true);
+        }
+        else if (backward)
+        {
+            if (right)
+                playerAnim.SetBool("backwardRight", true);
+            else if (left)
+                playerAnim.SetBool("backwardLeft", true);
+            else
+                playerAnim.SetBool("backwardWalk", true);
         }
         else
         {
-            playerAnim.SetBool("isWalking", false);
+            if (right)
+                playerAnim.SetBool("right", true);
+            else if (left)
+                playerAnim.SetBool("left", true);
         }
     }
 
