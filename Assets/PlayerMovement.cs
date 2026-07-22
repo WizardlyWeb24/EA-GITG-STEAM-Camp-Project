@@ -33,9 +33,14 @@ public class PlayerMovement : MonoBehaviour
     {
         moveAction.action.Enable();
 
-        attack1Action.action.Enable();
-        attack2Action.action.Enable();
-        attack3Action.action.Enable();
+        if (attack1Action != null)
+            attack1Action.action.Enable();
+
+        if (attack2Action != null)
+            attack2Action.action.Enable();
+
+        if (attack3Action != null)
+            attack3Action.action.Enable();
     }
 
     private void OnDisable()
