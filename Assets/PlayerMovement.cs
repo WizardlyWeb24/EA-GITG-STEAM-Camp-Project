@@ -10,6 +10,11 @@ public class PlayerMovement : MonoBehaviour
 
     public float attackCooldown = 0.8f;
 
+    //adding damage
+    public Health enemyHealth;
+    public float damage = 20f;
+    public float attackRange = 2f;
+
     private Rigidbody rb;
     private Animator playerAnim;
 
@@ -86,6 +91,9 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("Attack1 Pressed");
 
         playerAnim.SetTrigger("Attack1");
+
+        DealDamage();
+
         StartCoroutine(Cooldown());
     }
 
@@ -98,6 +106,9 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("Attack2 Pressed");
 
         playerAnim.SetTrigger("Attack2");
+
+        DealDamage();
+
         StartCoroutine(Cooldown());
     }
 
@@ -110,7 +121,29 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("Attack3 Pressed");
 
         playerAnim.SetTrigger("Attack3");
+
+        DealDamage();
+
         StartCoroutine(Cooldown());
+    }
+
+    private void DealDamage()
+    {
+        if (enemyHealth == null)
+        {
+            Debug.Log("No enemy assigned!");
+            return;
+        }
+
+        float distance = Vector3.Distance(
+            transform.position,
+            enemyHealth.transform.position
+        );
+
+        if (distance <= attackRange)
+        {
+            enemyHealth.TakeDamage(damage);
+        }
     }
 
     private void FixedUpdate()
