@@ -164,6 +164,11 @@ public class PlayerMovement : MonoBehaviour
             attack3Action.action.Enable();
     }
 
+    public void PlayHitAnimation()
+    {
+        playerAnim.SetTrigger("Hit");
+    }
+
     private void OnDisable()
     {
         moveAction.action.Disable();

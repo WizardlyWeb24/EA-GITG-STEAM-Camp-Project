@@ -7,28 +7,34 @@ public class Health : MonoBehaviour
 
     private float currentHealth;
     public Slider healthBar;
-
+    private PlayerMovement playerMovement;
     public Animator animator;
 
     private void Start()
     {
         currentHealth = maxHealth;
 
-        if (healthBar != null)
-            healthBar.value = 1f;
+        playerMovement = GetComponent<PlayerMovement>();
     }
 
     public void TakeDamage(float damage)
     {
-        Debug.Log(gameObject.name + " took " + damage + " damage!");
-
         currentHealth -= damage;
 
+        if (playerMovement != null)
+        {
+            playerMovement.PlayHitAnimation();
+        }
+
         if (healthBar != null)
+        {
             healthBar.value = currentHealth / maxHealth;
+        }
 
         if (currentHealth <= 0)
+        {
             Die();
+        }
     }
 
     private void Die()
