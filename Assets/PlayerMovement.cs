@@ -166,6 +166,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void PlayHitAnimation()
     {
+        Debug.Log("Playing hit animation");
         playerAnim.SetTrigger("Hit");
     }
 

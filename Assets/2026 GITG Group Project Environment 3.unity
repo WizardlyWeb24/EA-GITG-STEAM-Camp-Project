@@ -12681,6 +12681,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   menuScreen: {fileID: 2109695839}
   ExitScreen: {fileID: 146357323}
+  player1Health: {fileID: 948123492}
+  player2Health: {fileID: 1288147286}
   endingText: {fileID: 1456779943}
 --- !u!4 &2011561506
 Transform:

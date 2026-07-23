@@ -4,11 +4,15 @@ public class GameManager : MonoBehaviour
 {
     public GameObject menuScreen;
     public GameObject ExitScreen;
-
+    public Health player1Health;
+    public Health player2Health;
     public void PlayGame()
     {
         menuScreen.SetActive(false);
         ExitScreen.SetActive(false);
+
+        player1Health.ResetHealth();
+        player2Health.ResetHealth();
     }
     public void QuitGame()
     {

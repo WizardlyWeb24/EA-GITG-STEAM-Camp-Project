@@ -10,6 +10,8 @@ public class Health : MonoBehaviour
     private PlayerMovement playerMovement;
     public Animator animator;
     private GameManager gameManager;
+    private Vector3 startingPosition;
+    private Quaternion startingRotation;
 
     private void Start()
     {
@@ -18,6 +20,9 @@ public class Health : MonoBehaviour
         gameManager = FindAnyObjectByType<GameManager>();
 
         playerMovement = GetComponent<PlayerMovement>();
+
+        startingPosition = transform.position;
+        startingRotation = transform.rotation;
     }
 
     public void TakeDamage(float damage)
@@ -53,6 +58,21 @@ public class Health : MonoBehaviour
             gameManager.ShowEndingScreen("Player 1");
         }
 
-        Destroy(gameObject, 3f);
+        gameObject.SetActive(false);
+    }
+
+    public void ResetHealth()
+    {
+        gameObject.SetActive(true);
+
+        currentHealth = maxHealth;
+
+        transform.position = startingPosition;
+        transform.rotation = startingRotation;
+
+        if (healthBar != null)
+        {
+            healthBar.value = currentHealth / maxHealth;
+        }
     }
 }
