@@ -15,9 +15,12 @@ public class GameManager : MonoBehaviour
         Debug.Log("Application closing");
         Application.Quit();
     }
-    public void ShowEndingScreen()
+    public TMPro.TextMeshProUGUI endingText;
+
+    public void ShowEndingScreen(string winner)
     {
         ExitScreen.SetActive(true);
+        endingText.text = winner + " Wins!";
     }
     public void ReturnToMenu()
     {

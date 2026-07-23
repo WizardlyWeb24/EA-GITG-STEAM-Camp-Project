@@ -9,12 +9,13 @@ public class Health : MonoBehaviour
     public Slider healthBar;
     private PlayerMovement playerMovement;
     public Animator animator;
+    private GameManager gameManager;
 
     private void Start()
     {
         currentHealth = maxHealth;
 
-        playerMovement = GetComponent<PlayerMovement>();
+        gameManager = FindAnyObjectByType<GameManager>();
     }
 
     public void TakeDamage(float damage)
@@ -41,9 +42,16 @@ public class Health : MonoBehaviour
     {
         Debug.Log(gameObject.name + " died!");
 
-        if (animator != null)
+        if (gameManager != null)
         {
-            animator.SetTrigger("Death");
+            if (gameObject.name == "Player1")
+            {
+                gameManager.ShowEndingScreen("Player 2");
+            }
+            else
+            {
+                gameManager.ShowEndingScreen("Player 1");
+            }
         }
 
         Destroy(gameObject, 3f);
