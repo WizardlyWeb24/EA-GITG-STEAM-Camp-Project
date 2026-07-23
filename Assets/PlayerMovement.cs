@@ -22,6 +22,94 @@ public class PlayerMovement : MonoBehaviour
 
     private bool canAttack = true;
 
+    public AudioSource musicSource;
+    public AudioSource footstepSource;
+    public AudioSource sfxSource;
+
+    public AudioClip walkClip;
+    public AudioClip fireballClip;
+    public AudioClip iceballClip;
+    public AudioClip windballClip;
+
+    void PlayFootsteps()
+    {
+        if (footstepSource.clip != walkClip)
+        {
+            footstepSource.clip = walkClip;
+            footstepSource.loop = true;
+        }
+
+        if (!footstepSource.isPlaying)
+            footstepSource.Play();
+    }
+
+    void StopFootsteps()
+    {
+        footstepSource.Stop();
+    }
+
+    void CastSpell1()
+    {
+        Debug.Log("CastSpell called");
+
+        if (sfxSource == null)
+        {
+            Debug.LogError("No SFX AudioSource assigned!");
+            return;
+        }
+
+        if (fireballClip == null)
+        {
+            Debug.LogError("No fireball clip assigned!");
+            return;
+        }
+
+        Debug.Log("Playing: " + fireballClip.name);
+
+        AudioSource.PlayClipAtPoint(fireballClip, transform.position);
+    }
+
+    void CastSpell2()
+    {
+        Debug.Log("CastSpell called");
+
+        if (sfxSource == null)
+        {
+            Debug.LogError("No SFX AudioSource assigned!");
+            return;
+        }
+
+        if (fireballClip == null)
+        {
+            Debug.LogError("No iceball clip assigned!");
+            return;
+        }
+
+        Debug.Log("Playing: " + iceballClip.name);
+
+        AudioSource.PlayClipAtPoint(iceballClip, transform.position);
+    }
+
+    void CastSpell3()
+    {
+        Debug.Log("CastSpell called");
+
+        if (sfxSource == null)
+        {
+            Debug.LogError("No SFX AudioSource assigned!");
+            return;
+        }
+
+        if (fireballClip == null)
+        {
+            Debug.LogError("No iceball clip assigned!");
+            return;
+        }
+
+        Debug.Log("Playing: " + iceballClip.name);
+
+        AudioSource.PlayClipAtPoint(windballClip, transform.position);
+    }
     private void Awake()
     {
         playerAnim = GetComponent<Animator>();
@@ -61,20 +149,19 @@ public class PlayerMovement : MonoBehaviour
     {
         moveInput = moveAction.action.ReadValue<Vector2>();
 
+        if (moveInput.sqrMagnitude > 0.01f)
+            PlayFootsteps();
+        else
+            StopFootsteps();
+
         if (attack1Action.action.WasPressedThisFrame())
-        {
             Attack1();
-        }
 
         if (attack2Action.action.WasPressedThisFrame())
-        {
             Attack2();
-        }
 
         if (attack3Action.action.WasPressedThisFrame())
-        {
             Attack3();
-        }
     }
 
     // Left Mouse Button
@@ -85,7 +172,9 @@ public class PlayerMovement : MonoBehaviour
 
         Debug.Log("Attack1 Pressed");
 
+        CastSpell1();                    // Play fireball sound
         playerAnim.SetTrigger("Attack1");
+
         StartCoroutine(Cooldown());
     }
 
@@ -97,6 +186,8 @@ public class PlayerMovement : MonoBehaviour
 
         Debug.Log("Attack2 Pressed");
 
+
+        CastSpell2();
         playerAnim.SetTrigger("Attack2");
         StartCoroutine(Cooldown());
     }
@@ -109,6 +200,7 @@ public class PlayerMovement : MonoBehaviour
 
         Debug.Log("Attack3 Pressed");
 
+        CastSpell3();
         playerAnim.SetTrigger("Attack3");
         StartCoroutine(Cooldown());
     }
