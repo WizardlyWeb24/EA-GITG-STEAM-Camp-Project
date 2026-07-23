@@ -16,6 +16,8 @@ public class Health : MonoBehaviour
         currentHealth = maxHealth;
 
         gameManager = FindAnyObjectByType<GameManager>();
+
+        playerMovement = GetComponent<PlayerMovement>();
     }
 
     public void TakeDamage(float damage)
@@ -42,16 +44,13 @@ public class Health : MonoBehaviour
     {
         Debug.Log(gameObject.name + " died!");
 
-        if (gameManager != null)
+        if (gameObject.name == "Character 1")
         {
-            if (gameObject.name == "Player1")
-            {
-                gameManager.ShowEndingScreen("Player 2");
-            }
-            else
-            {
-                gameManager.ShowEndingScreen("Player 1");
-            }
+            gameManager.ShowEndingScreen("Player 2");
+        }
+        else if (gameObject.name == "Character 2")
+        {
+            gameManager.ShowEndingScreen("Player 1");
         }
 
         Destroy(gameObject, 3f);
