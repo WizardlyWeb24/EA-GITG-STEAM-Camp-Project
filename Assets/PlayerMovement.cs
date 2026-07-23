@@ -31,6 +31,12 @@ public class PlayerMovement : MonoBehaviour
     public AudioClip iceballClip;
     public AudioClip windballClip;
 
+    public GameObject fireballPrefab;
+    public GameObject iceballPrefab;
+    public GameObject windballPrefab;
+
+    public Transform spellSpawnPoint;
+
     void PlayFootsteps()
     {
         if (footstepSource.clip != walkClip)
@@ -47,7 +53,34 @@ public class PlayerMovement : MonoBehaviour
     {
         footstepSource.Stop();
     }
+    void SpawnFireball()
+    {
+        if (fireballPrefab != null && spellSpawnPoint != null)
+        {
+            Instantiate(
+                fireballPrefab,
+                spellSpawnPoint.position,
+                spellSpawnPoint.rotation
+            );
+        }
+    }
+    void SpawnIceball()
+    {
+        Instantiate(
+            iceballPrefab,
+            spellSpawnPoint.position,
+            spellSpawnPoint.rotation
+        );
+    }
 
+    void SpawnWindball()
+    {
+        Instantiate(
+            windballPrefab,
+            spellSpawnPoint.position,
+            spellSpawnPoint.rotation
+        );
+    }
     void CastSpell1()
     {
         Debug.Log("CastSpell called");
@@ -100,7 +133,7 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        if (fireballClip == null)
+        if (windballClip == null)
         {
             Debug.LogError("No iceball clip assigned!");
             return;
@@ -172,7 +205,9 @@ public class PlayerMovement : MonoBehaviour
 
         Debug.Log("Attack1 Pressed");
 
-        CastSpell1();                    // Play fireball sound
+        CastSpell1();
+        SpawnFireball();
+
         playerAnim.SetTrigger("Attack1");
 
         StartCoroutine(Cooldown());
@@ -188,6 +223,7 @@ public class PlayerMovement : MonoBehaviour
 
 
         CastSpell2();
+        SpawnIceball();
         playerAnim.SetTrigger("Attack2");
         StartCoroutine(Cooldown());
     }
@@ -201,6 +237,7 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("Attack3 Pressed");
 
         CastSpell3();
+        SpawnWindball();
         playerAnim.SetTrigger("Attack3");
         StartCoroutine(Cooldown());
     }

@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4661688945032033463
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 185154408316653818}
+  m_Layer: 0
+  m_Name: SpellSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &185154408316653818
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4661688945032033463}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.3, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2652904614033032817}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3130060863893841189
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -140,7 +171,10 @@ PrefabInstance:
     - {fileID: 3887555817790317420, guid: 094cd1418e634464ebab9c4a1fdcbde4, type: 3}
     - {fileID: 5657659237366847346, guid: 094cd1418e634464ebab9c4a1fdcbde4, type: 3}
     - {fileID: 393861765822729100, guid: 094cd1418e634464ebab9c4a1fdcbde4, type: 3}
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1126242358742066004, guid: 094cd1418e634464ebab9c4a1fdcbde4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 185154408316653818}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 354350443408783854, guid: 094cd1418e634464ebab9c4a1fdcbde4, type: 3}
       insertIndex: -1
@@ -182,6 +216,11 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!4 &2652904614033032817 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1126242358742066004, guid: 094cd1418e634464ebab9c4a1fdcbde4, type: 3}
+  m_PrefabInstance: {fileID: 3130060863893841189}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3430285085186677963 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 354350443408783854, guid: 094cd1418e634464ebab9c4a1fdcbde4, type: 3}
@@ -249,4 +288,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   moveSpeed: 5
   rotationSpeed: 180
+  attackCooldown: 0.8
   moveAction: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  attack1Action: {fileID: 0}
+  attack2Action: {fileID: 0}
+  attack3Action: {fileID: 0}
+  musicSource: {fileID: 0}
+  footstepSource: {fileID: 0}
+  sfxSource: {fileID: 0}
+  walkClip: {fileID: 0}
+  fireballClip: {fileID: 0}
+  iceballClip: {fileID: 0}
+  windballClip: {fileID: 0}
