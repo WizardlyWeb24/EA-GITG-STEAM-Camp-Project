@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8077700001843989746}
   - component: {fileID: 3130821829327047274}
   - component: {fileID: 1026502009278849482}
+  - component: {fileID: -8705330976970273812}
   m_Layer: 0
   m_Name: Windball
   m_TagString: Untagged
@@ -4877,6 +4878,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2e3dc07281918749959b46b0b854e0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  speed: 15
-  damage: 25
+  speed: 25
+  damage: 10
   lifeTime: 1
+--- !u!65 &-8705330976970273812
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8709052734189908204}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}

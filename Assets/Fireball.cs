@@ -6,6 +6,7 @@ public class Fireball : MonoBehaviour
     public float damage = 25f;
     public float lifeTime = 3f;
 
+
     private void Start()
     {
         Destroy(gameObject, lifeTime);
@@ -18,8 +19,11 @@ public class Fireball : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Hit: " + other.name);
+        Health health = other.GetComponent<Health>();
 
-        Destroy(gameObject);
+        if (health != null)
+        {
+            health.TakeDamage(damage);
+        }
     }
 }
