@@ -8,4 +8,10 @@ public class GameManager : MonoBehaviour
     {
         menuScreen.SetActive(false);
     }
+    public void QuitGame()
+    {
+        Debug.Log("Application closing");
+        Application.Quit();
+    }
 }
+
