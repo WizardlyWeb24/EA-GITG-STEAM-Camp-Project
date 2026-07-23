@@ -1,25 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Fireball : MonoBehaviour
 {
-    public GameObject projecttile;
-    public string C;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public float speed = 15f;
+    public float damage = 25f;
+    public float lifeTime = 3f;
+
+    private void Start()
     {
-        
+        Destroy(gameObject, lifeTime);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C ))
-        {
-            GameObject fireball = Instantiate(projecttile, transform) as GameObject;
-            Rigidbody rb = fireball.GetComponent<Rigidbody>();
-            rb.angularVelocity = transform.forward * 20;
-        }
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Hit: " + other.name);
+
+        Destroy(gameObject);
     }
 }

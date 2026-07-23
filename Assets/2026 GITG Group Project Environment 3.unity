@@ -11156,6 +11156,16 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5186735023777053022, guid: ac8efb728f1fb9b4092c4df591c827ca, type: 3}
   m_PrefabInstance: {fileID: 1847084014}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1860377459 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 185154408316653818, guid: ca4696c42f0ffa248841537e82950d66, type: 3}
+  m_PrefabInstance: {fileID: 6429790567662329821}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1931911181 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9080938556844925149, guid: 0e3954e9798c44942bc8b661acc6b10a, type: 3}
+  m_PrefabInstance: {fileID: 3805062002884171096}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1958137738
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12325,9 +12335,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -1599000700537569617, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     - target: {fileID: 2121539795942383315, guid: 0e3954e9798c44942bc8b661acc6b10a, type: 3}
+      propertyPath: iceballPrefab
+      value: 
+      objectReference: {fileID: 8709052734189908204, guid: ef1a517b86cfa0644a5a05899937fd32, type: 3}
+    - target: {fileID: 2121539795942383315, guid: 0e3954e9798c44942bc8b661acc6b10a, type: 3}
+      propertyPath: fireballPrefab
+      value: 
+      objectReference: {fileID: 8709052734189908204, guid: 9f009f09295259a4283ac8afdfa6ec77, type: 3}
+    - target: {fileID: 2121539795942383315, guid: 0e3954e9798c44942bc8b661acc6b10a, type: 3}
       propertyPath: footstepSource
       value: 
       objectReference: {fileID: 1288147281}
+    - target: {fileID: 2121539795942383315, guid: 0e3954e9798c44942bc8b661acc6b10a, type: 3}
+      propertyPath: windballPrefab
+      value: 
+      objectReference: {fileID: 8709052734189908204, guid: ae4fe42055a7c12489fb90fa85ed8fd2, type: 3}
+    - target: {fileID: 2121539795942383315, guid: 0e3954e9798c44942bc8b661acc6b10a, type: 3}
+      propertyPath: spellSpawnPoint
+      value: 
+      objectReference: {fileID: 1931911181}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12433,9 +12459,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7703821401258372623, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     - target: {fileID: 7635183663029789530, guid: ca4696c42f0ffa248841537e82950d66, type: 3}
+      propertyPath: iceballPrefab
+      value: 
+      objectReference: {fileID: 8709052734189908204, guid: ef1a517b86cfa0644a5a05899937fd32, type: 3}
+    - target: {fileID: 7635183663029789530, guid: ca4696c42f0ffa248841537e82950d66, type: 3}
+      propertyPath: fireballPrefab
+      value: 
+      objectReference: {fileID: 8709052734189908204, guid: 9f009f09295259a4283ac8afdfa6ec77, type: 3}
+    - target: {fileID: 7635183663029789530, guid: ca4696c42f0ffa248841537e82950d66, type: 3}
       propertyPath: footstepSource
       value: 
       objectReference: {fileID: 948123487}
+    - target: {fileID: 7635183663029789530, guid: ca4696c42f0ffa248841537e82950d66, type: 3}
+      propertyPath: windballPrefab
+      value: 
+      objectReference: {fileID: 8709052734189908204, guid: ae4fe42055a7c12489fb90fa85ed8fd2, type: 3}
+    - target: {fileID: 7635183663029789530, guid: ca4696c42f0ffa248841537e82950d66, type: 3}
+      propertyPath: spellSpawnPoint
+      value: 
+      objectReference: {fileID: 1860377459}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
