@@ -7,6 +7,7 @@ public class Health : MonoBehaviour
 
     private float currentHealth;
     public Slider healthBar;
+    public GameObject healthUI;
     private PlayerMovement playerMovement;
     public Animator animator;
     private GameManager gameManager;
@@ -73,6 +74,22 @@ public class Health : MonoBehaviour
         if (healthBar != null)
         {
             healthBar.value = currentHealth / maxHealth;
+        }
+    }
+
+    public void ShowHealthBar()
+    {
+        if (healthUI != null)
+        {
+            healthUI.gameObject.SetActive(true);
+        }
+    }
+
+    public void HideHealthBar()
+    {
+        if (healthUI != null)
+        {
+            healthUI.gameObject.SetActive(false);
         }
     }
 }

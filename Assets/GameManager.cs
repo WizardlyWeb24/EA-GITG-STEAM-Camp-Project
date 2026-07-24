@@ -6,10 +6,22 @@ public class GameManager : MonoBehaviour
     public GameObject ExitScreen;
     public Health player1Health;
     public Health player2Health;
+
+    private void Start()
+    {
+        ExitScreen.SetActive(false);
+
+        player1Health.HideHealthBar();
+        player2Health.HideHealthBar();
+    }
+
     public void PlayGame()
     {
         menuScreen.SetActive(false);
         ExitScreen.SetActive(false);
+
+        player1Health.ShowHealthBar();
+        player2Health.ShowHealthBar();
 
         player1Health.ResetHealth();
         player2Health.ResetHealth();
@@ -23,6 +35,8 @@ public class GameManager : MonoBehaviour
 
     public void ShowEndingScreen(string winner)
     {
+        player1Health.HideHealthBar();
+        player2Health.HideHealthBar();
         ExitScreen.SetActive(true);
         endingText.text = winner + " Wins!";
     }
