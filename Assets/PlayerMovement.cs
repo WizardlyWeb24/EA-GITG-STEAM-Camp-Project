@@ -206,6 +206,7 @@ public class PlayerMovement : MonoBehaviour
     // Left Mouse Button
     private void Attack1()
     {
+        Debug.Log(gameObject.name + " canAttack = " + canAttack);
         if (!canAttack)
             return;
 
@@ -321,5 +322,16 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(attackCooldown);
 
         canAttack = true;
+    }
+
+    public void ResetPlayer()
+    {
+        StopAllCoroutines();
+
+        canAttack = true;
+
+        playerAnim.ResetTrigger("Attack1");
+        playerAnim.ResetTrigger("Attack2");
+        playerAnim.ResetTrigger("Attack3");
     }
 }

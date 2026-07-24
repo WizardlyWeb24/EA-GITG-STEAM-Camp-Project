@@ -66,6 +66,12 @@ public class Health : MonoBehaviour
     {
         gameObject.SetActive(true);
 
+        if (playerMovement != null)
+        {
+            playerMovement.ResetPlayer();
+        }
+
+
         currentHealth = maxHealth;
 
         transform.position = startingPosition;
